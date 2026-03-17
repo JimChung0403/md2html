@@ -135,6 +135,14 @@ select {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  overflow: hidden;
+}
+
+.viewer-content {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 32px 32px 56px;
 }
 
 .tree-root,
@@ -197,18 +205,18 @@ select {
 
 .markdown-body,
 .empty-state {
-  margin: 0 auto;
-  width: min(100%, 840px);
+  margin: 0;
+  width: 100%;
+  max-width: none;
 }
 
 .markdown-body {
-  padding: 32px 32px 56px;
   line-height: 1.8;
   font-size: 1.06rem;
 }
 
 .empty-state {
-  padding: 52px 32px;
+  padding: 52px 0;
   color: var(--muted);
 }
 
@@ -237,6 +245,10 @@ select {
 .markdown-body pre,
 .markdown-body table {
   margin: 1em 0;
+}
+
+.markdown-body svg {
+  max-width: 100%;
 }
 
 .markdown-body a {
@@ -274,10 +286,16 @@ select {
   max-width: 100%;
 }
 
-.markdown-body table {
+.table-scroll {
   width: 100%;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.markdown-body table {
+  width: max-content;
+  min-width: 100%;
   border-collapse: collapse;
-  overflow: hidden;
   border-radius: 16px;
 }
 
@@ -287,10 +305,58 @@ select {
   border: 1px solid var(--line);
   text-align: left;
   vertical-align: top;
+  background: rgba(255, 252, 247, 0.72);
 }
 
 .markdown-body th {
   background: rgba(112, 73, 43, 0.08);
+}
+
+.mermaid-block {
+  margin: 1.4em 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(248, 240, 229, 0.92));
+}
+
+.mermaid-caption {
+  margin-bottom: 14px;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mermaid-loading {
+  margin: 0;
+  color: var(--muted);
+}
+
+.mermaid-frame {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.mermaid-stage {
+  min-width: 100%;
+}
+
+.mermaid-graphic {
+  width: max-content;
+  transform-origin: top left;
+}
+
+.mermaid-graphic svg {
+  display: block;
+  height: auto;
+}
+
+.mermaid-error pre {
+  margin-bottom: 0;
 }
 
 @media (max-width: 900px) {
@@ -300,10 +366,12 @@ select {
   }
 
   .sidebar-header,
-  .viewer-header,
-  .markdown-body,
-  .empty-state {
+  .viewer-header {
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  .viewer-content {
+    padding: 24px 20px 36px;
   }
 }
