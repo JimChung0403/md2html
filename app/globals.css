@@ -65,6 +65,50 @@ select {
   border-bottom: 1px solid var(--line);
 }
 
+.sidebar-filters {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.filter-field {
+  display: grid;
+  gap: 6px;
+}
+
+.filter-label {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.filter-field input,
+.filter-field select {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(88, 63, 40, 0.18);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--text);
+  outline: none;
+}
+
+.filter-field input:focus,
+.filter-field select:focus {
+  border-color: rgba(179, 92, 46, 0.62);
+  box-shadow: 0 0 0 4px rgba(179, 92, 46, 0.12);
+}
+
+.filter-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
 .eyebrow,
 .viewer-label {
   margin: 0 0 10px;
